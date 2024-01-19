@@ -31,6 +31,17 @@ import (
 	"github.com/sdomino/scribble"
 )
 
+const AmneziaConf = `
+	Jc = 10
+	Jmin = 60
+	Jmax = 2000
+	S1 = 70
+	S2 = 100
+	H1 = 909622780
+	H2 = 545725089
+	H3 = 1234675168
+	H4 = 1782484388`
+
 var qrCodeSettings = model.QRCodeSettings{
 	Enabled:    true,
 	IncludeDNS: true,
@@ -84,6 +95,7 @@ func BuildClientConfig(client model.Client, server model.Server, setting model.G
 		clientPrivateKey +
 		clientDNS +
 		clientMTU +
+		AmneziaConf +
 		"\n[Peer]\n" +
 		peerPublicKey +
 		peerPresharedKey +
