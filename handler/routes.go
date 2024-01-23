@@ -547,7 +547,7 @@ func EmailClient(db store.IStore, mailer emailer.Emailer, emailSubject, emailCon
 		globalSettings, _ := db.GetGlobalSettings()
 		config := util.BuildClientConfig(*clientData.Client, server, globalSettings)
 
-		cfgAtt := emailer.Attachment{Name: "wg0.conf", Data: []byte(config)}
+		cfgAtt := emailer.Attachment{Name: "awg0.conf", Data: []byte(config)}
 		var attachments []emailer.Attachment
 		if clientData.Client.PrivateKey != "" {
 			qrdata, err := base64.StdEncoding.DecodeString(strings.TrimPrefix(clientData.QRCode, "data:image/png;base64,"))

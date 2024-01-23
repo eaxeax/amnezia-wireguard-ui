@@ -552,7 +552,7 @@ func GetSubnetRangesString() string {
 	return strings.TrimSpace(strB.String())
 }
 
-// WriteWireGuardServerConfig to write Wireguard server config. e.g. wg0.conf
+// WriteWireGuardServerConfig to write Wireguard server config. e.g. awg0.conf
 func WriteWireGuardServerConfig(tmplDir fs.FS, serverConfig model.Server, clientDataList []model.ClientData, usersList []model.User, globalSettings model.GlobalSetting) error {
 	var tmplWireguardConf string
 

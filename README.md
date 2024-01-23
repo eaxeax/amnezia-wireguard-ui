@@ -56,7 +56,7 @@ docker-compose up
 | `WGUI_PERSISTENT_KEEPALIVE`   | The default persistent keepalive for WireGuard in global settings                                                                                                                                                                                                                   | `15`                               |
 | `WGUI_FIREWALL_MARK`          | The default WireGuard firewall mark                                                                                                                                                                                                                                                 | `0xca6c`  (51820)                  |
 | `WGUI_TABLE`                  | The default WireGuard table value settings                                                                                                                                                                                                                                          | `auto`                             |
-| `WGUI_CONFIG_FILE_PATH`       | The default WireGuard config file path used in global settings                                                                                                                                                                                                                      | `/etc/wireguard/wg0.conf`          |
+| `WGUI_CONFIG_FILE_PATH`       | The default WireGuard config file path used in global settings                                                                                                                                                                                                                      | `/etc/wireguard/awg0.conf`          |
 | `WGUI_LOG_LEVEL`              | The default log level. Possible values: `DEBUG`, `INFO`, `WARN`, `ERROR`, `OFF`                                                                                                                                                                                                     | `INFO`                             |
 | `WG_CONF_TEMPLATE`            | The custom `wg.conf` config file template. Please refer to our [default template](https://github.com/ngoduykhanh/wireguard-ui/blob/master/templates/wg.conf)                                                                                                                        | N/A                                |
 | `EMAIL_FROM_ADDRESS`          | The sender email address                                                                                                                                                                                                                                                            | N/A                                |
@@ -137,10 +137,10 @@ Create `/etc/systemd/system/wgui.path`
 cd /etc/systemd/system/
 cat << EOF > wgui.path
 [Unit]
-Description=Watch /etc/wireguard/wg0.conf for changes
+Description=Watch /etc/wireguard/awg0.conf for changes
 
 [Path]
-PathModified=/etc/wireguard/wg0.conf
+PathModified=/etc/wireguard/awg0.conf
 
 [Install]
 WantedBy=multi-user.target
@@ -176,7 +176,7 @@ cat << EOF > wgui
 #!/sbin/openrc-run
 
 command=/sbin/inotifyd
-command_args="/usr/local/bin/wgui /etc/wireguard/wg0.conf:w"
+command_args="/usr/local/bin/wgui /etc/wireguard/awg0.conf:w"
 pidfile=/run/${RC_SVCNAME}.pid
 command_background=yes
 EOF

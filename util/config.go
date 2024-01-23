@@ -41,7 +41,7 @@ const (
 	DefaultPersistentKeepalive             = 15
 	DefaultFirewallMark                    = "0xca6c" // i.e. 51820
 	DefaultTable                           = "auto"
-	DefaultConfigFilePath                  = "/etc/wireguard/wg0.conf"
+	DefaultConfigFilePath                  = "/etc/wireguard/awg0.conf"
 	UsernameEnvVar                         = "WGUI_USERNAME"
 	PasswordEnvVar                         = "WGUI_PASSWORD"
 	PasswordFileEnvVar                     = "WGUI_PASSWORD_FILE"
